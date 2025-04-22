@@ -1,0 +1,68 @@
+.TH HSH 1 "April 2025" "Holberton School" "Simple Shell Man Page"
+.SH NAME
+hsh \- simple UNIX command interpreter
+.SH SYNOPSIS
+.B ./hsh
+.SH DESCRIPTION
+.B hsh
+is a simple UNIX command language interpreter that reads commands from standard input and executes them.
+
+.PP
+.B Invocation
+.PP
+Interactive mode:
+.PP
+$ ./hsh
+.PP
+Non-interactive mode:
+.PP
+$ echo "command" | ./hsh
+
+.PP
+.B Command Execution
+.PP
+After a command has been split into words, if it results in a simple command and an optional list of arguments, the following actions are taken:
+
+.PP
+If the command name contains no slashes, the shell attempts to locate it. If there exists a shell function by that name, that function is invoked. If the name does not match a function, the shell searches for it in the list of shell builtins. If a match is found, that builtin is invoked.
+
+.PP
+If the name is neither a shell function nor a builtin, and contains no slashes, the shell searches each element of the PATH for a directory containing an executable file by that name.
+
+.PP
+If the search is successful, the program is invoked with the given arguments.
+
+.SH BUILTINS
+.PP
+.B exit
+.PP
+Exit the shell.
+.PP
+.B env
+.PP
+Print the current environment variables.
+
+.SH EXIT STATUS
+.PP
+The exit status of an executed command is the value returned by the waitpid system call. A command which exits with a zero exit status has succeeded. An exit status of zero indicates success. A non-zero exit status indicates failure.
+
+.SH EXAMPLES
+.PP
+$ ./hsh
+.PP
+($) /bin/ls
+.PP
+hsh main.c shell.c
+.PP
+($) exit
+.PP
+$
+
+.SH AUTHORS
+See the AUTHORS file in the project repository.
+
+.SH BUGS
+No known bugs.
+
+.SH SEE ALSO
+sh(1), bash(1), csh(1)

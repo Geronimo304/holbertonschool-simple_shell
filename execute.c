@@ -21,10 +21,8 @@ int execute_command(char *command)
 		write(STDERR_FILENO, error_msg, strlen(error_msg));
 		return (1);
 	}
-
 	argv[0] = cmd_path;
 	argv[1] = NULL;
-
 	child_pid = fork();
 	if (child_pid == -1)
 	{
@@ -32,7 +30,6 @@ int execute_command(char *command)
 		free(cmd_path);
 		return (1);
 	}
-
 	if (child_pid == 0)
 	{
 		if (execve(cmd_path, argv, environ) == -1)

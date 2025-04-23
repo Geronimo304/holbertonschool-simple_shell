@@ -25,6 +25,9 @@ int main(void)
 				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
+
+		line = trim_spaces(line);
+
 		if (line[0] == '\0')
 		{
 			free(line);
@@ -38,7 +41,6 @@ int main(void)
 		}
 
 		status = execute_command(line);
-
 		free(line);
 	}
 	return (0);

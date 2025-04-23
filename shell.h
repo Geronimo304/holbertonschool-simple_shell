@@ -14,7 +14,7 @@ int execute_command(char *command);
 int is_exit(char *command);
 char *get_path(void);
 char *find_command(char *command);
-
+char *trim_spaces(char *str);
 extern char **environ;
 
 #endif /* SHELL_H */

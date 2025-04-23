@@ -26,8 +26,6 @@ int main(void)
 			break;
 		}
 
-		line = trim_spaces(line);
-
 		if (line[0] == '\0')
 		{
 			free(line);
